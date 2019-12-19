@@ -27,9 +27,9 @@
           <img src="https://image.flaticon.com/icons/png/512/119/119058.png" height="250px" width="250px"/>
         </div>
       </div>
-      <div class="sec_prt2">
+      <div class="sec_prt2" style="height: 250px">
         <div class="sec_prt2_img">
-          <img src="https://image.flaticon.com/icons/png/512/119/119058.png" height="250px" width="250px"/>
+          <img src="https://image.flaticon.com/icons/png/512/2/2247.png" height="250px" width="250px"/>
         </div>
         <div class="sec_prt2_hd">
           <h2> {{ prt2_head }} </h2>
@@ -42,8 +42,15 @@
           <p> {{ prt3_desc }} </p>
         </div>
         <div class="sec_prt3_img">
-          <img src="https://image.flaticon.com/icons/png/512/119/119058.png" height="250px" width="250px"/>
+          <img src="https://image.flaticon.com/icons/png/512/2117/premium/2117044.png" height="250px" width="250px"/>
         </div>
+      </div>
+    </section>
+    <section class="bottom_content">
+      <div class="dit_univ_data">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/DIT_University_Dehradun_Logo.jpg/220px-DIT_University_Dehradun_Logo.jpg"
+             width="130px" height="100px"/>
+        <h2> {{ dit_univ_loc }} </h2>
       </div>
     </section>
   </div>
@@ -73,7 +80,8 @@
       prt3_head: 'Medical Diagnosis Suggestion System',
       prt3_desc: 'In this phase we have focused on combining the work done in the first two phases (Heart Disease Prediction and Arrhythmia ' +
                  'Detection using Convolutional Neural Networks) and creating a simple medical diagnosis suggestion system which is capable ' +
-                 'of suggesting an appropriate diagnosis depending upon the type of arrhythmia condition the patient has.'
+                 'of suggesting an appropriate diagnosis depending upon the type of arrhythmia condition the patient has.',
+      dit_univ_loc: 'Mussoorie-Diversion Road, Village Makkawala, Dehradun, Uttarakhand-248009, India'
     })
   };
 </script>
@@ -163,7 +171,33 @@
   .sec_prt2_img {
     text-align: center;
     width: 500px;
-    clear: left;
+    float: right;
+  }
+  .bottom_content {
+    margin-top: 100px;
+    position: relative;
+    height: 250px;
+    width: 100%;
+    border-top: 1px solid #ccc;
+  }
+  .bottom_content div {
+    text-align: center;
+  }
+  .dit_univ_data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translate(-50%, -50%);
+    width: 400px;
+  }
+  .dit_univ_data img {
+    text-align: center;
+  }
+  .dit_univ_data h2 {
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
   }
 
 </style>
