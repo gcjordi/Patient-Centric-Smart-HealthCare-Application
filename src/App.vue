@@ -1,19 +1,19 @@
 <template>
   <v-app>
     <v-content>
-      <Descbar/>
+      <HomePage/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Descbar from './components/Descbar';
+import HomePage from './components/HomePage'
 
 export default {
   name: 'App',
 
   components: {
-    Descbar,
+    HomePage,
   },
 
   data: () => ({

@@ -3,15 +3,15 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import vuetify from './plugins/vuetify';
 
+import TestPage from './components/TestPage.vue'
+
 Vue.use(VueRouter)
 Vue.config.productionTip = false
 
-const routes = [
-  { path: '/test', component: }
-]
-
 const router = new VueRouter({
-  routes
+  routes: [
+    { path: '/test', component: TestPage }
+  ]
 })
 
 new Vue({
