@@ -4,7 +4,7 @@
       <v-btn
         icon
         class="console_btn">
-        <v-icon>mdi-console</v-icon>
+        <v-icon v-on:click="mvTest()">mdi-console</v-icon>
       </v-btn>
       <div class="padded-multiline">
         <h1> {{ project_title }} </h1>
@@ -57,8 +57,16 @@
 </template>
 
 <script>
+  import router from '../router';
+
   export default {
-    name: 'Patient Centric Smart Healthcare System',
+    name: 'HomePage',
+
+    methods: {
+      mvTest() {
+        router.push({ name: 'TestPage' });
+      }
+    },
 
     data: () => ({
       project_title: 'Patient Centric Smart HealthCare System using Machine Learning Approach',
