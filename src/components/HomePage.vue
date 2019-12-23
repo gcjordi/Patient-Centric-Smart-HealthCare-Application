@@ -3,8 +3,9 @@
     <section>
       <v-btn
         icon
-        class="console_btn">
-        <v-icon v-on:click="mvTest()">mdi-console</v-icon>
+        class="console_btn"
+        :to="`${'/test'}`">
+        <v-icon>mdi-console</v-icon>
       </v-btn>
       <div class="padded-multiline">
         <h1> {{ project_title }} </h1>
@@ -57,16 +58,8 @@
 </template>
 
 <script>
-  import router from '../router';
-
   export default {
     name: 'HomePage',
-
-    methods: {
-      mvTest() {
-        router.push({ name: 'TestPage' });
-      }
-    },
 
     data: () => ({
       project_title: 'Patient Centric Smart HealthCare System using Machine Learning Approach',
