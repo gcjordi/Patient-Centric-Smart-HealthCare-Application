@@ -12,20 +12,25 @@
             <v-list-item-subtitle><span style="font-family: Muli, sans-serif;">Heart Disease Report</span></v-list-item-subtitle>
             <hr/>
             <ul class="list_data">
-              <li>Age : {{ age }} </li>
-              <li>Gender : {{ gender }}</li>
-              <li>Chest Pain Type : {{ chptype }}</li>
-              <li>Resting Blood Pressure (mm/Hg) : {{ rbp }} </li>
-              <li>Serum Cholestrol Level (mg/dl) : {{ scl }} </li>
-              <li>Blood Sugar Level > 120 mg/dl : {{ bsl }} </li>
-              <li>Resting Electrocardiographic Results : {{ rer }} </li>
-              <li>Maximum Heart Rate Achieved : {{ mhra }} </li>
-              <li>Exercise Induced Angina : {{ eia }} </li>
-              <li>ST Depression Induced by Excercise Relative to rest : {{ stdep }} </li>
-              <li>Slope of the peak exercise ST segment : {{ slpst }} </li>
-              <li>Number of Major Vessel(0-3) colored by Fluroscopy : {{ fluroves }} </li>
-              <li>Thal : {{ thal }}</li>
+              <li>Age : <b> {{ age }} </b> </li>
+              <li>Gender : <b> {{ gender }} </b> </li>
+              <li>Chest Pain Type : <b> {{ chptype }} </b> </li>
+              <li>Resting Blood Pressure (mm/Hg) : <b> {{ rbp }} mm/Hg </b> </li>
+              <li>Serum Cholestrol Level (mg/dl) : <b> {{ scl }} mg/dl </b> </li>
+              <li>Blood Sugar Level > 120 mg/dl : <b> {{ bsl }} </b> </li>
+              <li>Resting Electrocardiographic Results : <b> {{ rer }} </b> </li>
+              <li>Maximum Heart Rate Achieved : <b> {{ mhra }} </b> </li>
+              <li>Exercise Induced Angina : <b> {{ eia }} </b> </li>
+              <li>ST Depression Induced by Excercise Relative to rest : <b> {{ stdep }} </b> </li>
+              <li>Slope of the peak exercise ST segment : <b> {{ slpst }} </b> </li>
+              <li>Number of Major Vessel(0-3) colored by Fluroscopy : <b> {{ fluroves }} </b> </li>
+              <li>Thal : <b> {{ thal }} </b> </li>
             </ul>
+            <hr/>
+            <div class="result_area">
+              <span style="font-weight: 600;">PREDICTION RESULT  : </span>
+              <span class="result_data"> {{ result }} </span>
+            </div>
           </v-list-item-content>
         </v-list-item>
       </v-card>
@@ -140,7 +145,24 @@
 
 <script>
   export default {
-    name: 'TestPage'
+    name: 'TestPage',
+
+    data: () => ({
+      result: 'Hard disease detected.',
+      age: 45,
+      gender: 'Male',
+      chptype: 'Typical Angina',
+      rbp: 124,
+      scl: 209,
+      bsl: 'True',
+      rer: 'Normal',
+      mhra: 342,
+      eia: 'Yes',
+      stdep: 2.4,
+      slpst: 'Upsloping',
+      fluroves: 2,
+      thal: 'Fixed Defect'
+    })
   }
 </script>
 
@@ -171,5 +193,10 @@
    font-size: 15px;
    font-family: 'Muli', sans-serif;
    line-height: 2;
+ }
+ .result_area {
+   font-family: 'Muli', sans-serif;
+   margin: 20px;
+   font-size: 18px;
  }
 </style>
