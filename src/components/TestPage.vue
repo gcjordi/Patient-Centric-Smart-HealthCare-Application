@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div style="background-color: #fff;">
     <div class="right_div">
       <v-card
         class="mx-auto"
         max-width="550"
-        outlined>
+        outlined
+        style="margin-bottom: 50px;">
         <v-list-item>
           <v-list-item-content>
             <div class="overline mb-4">DIT UNIVERSITY</div>
@@ -34,6 +35,10 @@
           </v-list-item-content>
         </v-list-item>
       </v-card>
+      <v-btn style="float: right;" v-if="show_button" class="ma-2"
+         tile outlined>
+         CHECK ARRHYTHMIA <v-icon right>mdi-arrow-right</v-icon>
+      </v-btn>
     </div>
     <div class="left_div">
       <h1>Enter the following data for Heart Disease Prediction : </h1>
@@ -148,6 +153,8 @@
     name: 'TestPage',
 
     data: () => ({
+      show_button: true,
+      result_int: 1,
       result: 'Hard disease detected.',
       age: 45,
       gender: 'Male',
