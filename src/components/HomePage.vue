@@ -4,7 +4,7 @@
       <v-btn
         icon
         class="console_btn"
-        :to="`${'/test'}`">
+        :to="`${'/starttest'}`">
         <v-icon>mdi-console</v-icon>
       </v-btn>
       <div class="padded-multiline">
