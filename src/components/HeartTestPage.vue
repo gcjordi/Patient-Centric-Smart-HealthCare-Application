@@ -150,7 +150,7 @@
 
 <script>
   export default {
-    name: 'TestPage',
+    name: 'HeartTestPage',
 
     data: () => ({
       show_button: true,
