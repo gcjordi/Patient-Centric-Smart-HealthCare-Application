@@ -87,7 +87,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
   .padded-multiline {
     width: 700px;

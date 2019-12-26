@@ -35,9 +35,9 @@
           </v-list-item-content>
         </v-list-item>
       </v-card>
-      <v-btn style="float: right;" v-if="show_button" class="ma-2"
+      <v-btn :to="`${'/test/arrhythmia'}`" style="float: right;" v-if="show_button" class="ma-2"
          tile outlined>
-         CHECK ARRHYTHMIA <v-icon right>mdi-arrow-right</v-icon>
+         CHECK ARRHYTHMIA <v-icon right small>mdi-arrow-right</v-icon>
       </v-btn>
     </div>
     <div class="left_div">
