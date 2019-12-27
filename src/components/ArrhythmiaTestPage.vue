@@ -54,7 +54,7 @@
           let file = this.files[i];
           formData.append('files[' + i + ']', file);
         }
-        axios.post('/test/arrhythmia/ecgupload',
+        axios.post('http://127.0.0.1:8000/pcshs_app/test/arrhythmia/ecgupload',
           formData,
           {
             headers: {

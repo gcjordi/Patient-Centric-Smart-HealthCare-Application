@@ -46,98 +46,104 @@
         ref = "form"
         lazy-validation>
         <v-text-field
-          :v-model="number"
+          :v-model="age"
           label="Age"
           :rules="ageRules"
           required
           dense
           outlined></v-text-field>
-        <v-text-field
-          v-model="select"
-          :items="gender"
-          :rules="[v => !!v ||'Gender is Required']"
+        <v-select
+          v-model="gender"
+          :items="gender_values"
+          :rules="[v => !!v ||'Required']"
           label="Gender"
           required
           dense
-          outlined></v-text-field>
-        <v-text-field
-          v-model="select"
+          outlined></v-select>
+        <v-select
+          v-model="chptype"
           :items="chest_pain_type"
-          :rules="[v => !!v ||'Chest Pain Type is Required']"
+          :rules="[v => !!v ||'Required']"
           label="Chest Pain Type"
           required
           dense
-          outlined></v-text-field>
+          outlined></v-select>
         <v-text-field
-          v-model="number"
+          v-model="rbp"
           label="Resting Blood Pressure (mm/Hg)"
-          :rules="bpRules"
+          :rules="[v => !!v ||'Required']"
           required
           dense
           outlined></v-text-field>
         <v-text-field
-          v-model="number"
-          :rules="cholRules"
+          v-model="scl"
+          :rules="[v => !!v ||'Required']"
           label="Serum Cholestrol Level (mg/dl)"
           required
           dense
           outlined></v-text-field>
-        <v-text-field
-          v-model="select"
+        <v-select
+          v-model="bsl"
           :items="bloodsugar"
           label="Is your blood sugar level > 120 mg/dl ?"
+          :rules="[v => !!v ||'Required']"
           required
           dense
-          outlined></v-text-field>
-        <v-text-field
-          v-model="select"
+          outlined></v-select>
+        <v-select
+          v-model="rer"
           :items="restecgresults"
           label="Resting Electrocardiographic Results"
+          :rules="[v => !!v ||'Required']"
           required
           dense
-          outlined></v-text-field>
+          outlined></v-select>
         <v-text-field
-          v-model="number"
-          :rules="hrtrateRules"
+          v-model="mhra"
+          :rules="[v => !!v ||'Required']"
           label="Maximum Heart Rate Achieved"
           required
           dense
           outlined></v-text-field>
-        <v-text-field
-          v-model="select"
+        <v-select
+          v-model="eia"
           :items="xangina"
           label="Exercise Induced Angina"
+          :rules="[v => !!v ||'Required']"
           required
           dense
-          outlined></v-text-field>
+          outlined></v-select>
         <v-text-field
-          v-model="number"
-          :rules="stdepRules"
+          v-model="stdep"
+          :rules="[v => !!v ||'Required']"
           label="ST Depression Induced by exercise relative to rest"
           required
           dense
           outlined></v-text-field>
-        <v-text-field
-          v-model="select"
-          :items="slpSTsegRules"
+        <v-select
+          v-model="slpst"
+          :items="slpSTseg"
           label="Slope of the peak exercise ST segment"
+          :rules="[v => !!v ||'Required']"
           required
           dense
-          outlined></v-text-field>
-        <v-text-field
-          v-model="select"
+          outlined></v-select>
+        <v-select
+          v-model="fluroves"
           :items="majvessel"
           label="Number of Major Vessels(0-3) colored by Fluroscopy"
+          :rules="[v => !!v ||'Required']"
           required
           dense
-          outlined></v-text-field>
-        <v-text-field
-          v-model="select"
-          :items="thal"
+          outlined></v-select>
+        <v-select
+          v-model="thal"
+          :items="thal_values"
           label="Thal"
+          :rules="[v => !!v ||'Required']"
           required
           dense
-          outlined></v-text-field>
+          outlined></v-select>
         <v-btn
           class="mr-4"
           @click="submit">Submit</v-btn>
@@ -156,19 +162,62 @@
       show_button: true,
       result_int: 1,
       result: 'Hard disease detected.',
-      age: 45,
-      gender: 'Male',
-      chptype: 'Typical Angina',
-      rbp: 124,
-      scl: 209,
-      bsl: 'True',
-      rer: 'Normal',
-      mhra: 342,
-      eia: 'Yes',
-      stdep: 2.4,
-      slpst: 'Upsloping',
-      fluroves: 2,
-      thal: 'Fixed Defect'
+      age: 0,
+      ageRules: [
+        v => !!v || 'Required',
+        v => (v > 0 && v <= 120) || 'Age cannot be less than 0 or greater than 120'
+      ],
+      gender: '',
+      gender_values: [
+        'Male',
+        'Female'
+      ],
+      chptype: '',
+      chest_pain_type: [
+        'Typical Angina',
+        'Atypical Angina',
+        'Non-Anginal Pain',
+        'Asymptomatic'
+      ],
+      rbp: 0,
+      scl: 0,
+      bsl: '',
+      bloodsugar: [
+        'True',
+        'False'
+      ],
+      rer: '',
+      restecgresults: [
+        'Normal',
+        'Having ST-T wave abnormality',
+        'Showing probable or definite left ventricular hypertropy'
+      ],
+      mhra: 0,
+      eia: '',
+      xangina: [
+        'Yes',
+        'No'
+      ],
+      stdep: 0.0,
+      slpst: '',
+      slpSTseg: [
+        'Upsloping',
+        'Flat',
+        'Downsloping'
+      ],
+      fluroves: 0,
+      majvessel: [
+        0,
+        1,
+        2,
+        3
+      ],
+      thal: '',
+      thal_values: [
+        'Normal',
+        'Fixed Defect',
+        'Reversable Defect'
+      ]
     })
   }
 </script>
