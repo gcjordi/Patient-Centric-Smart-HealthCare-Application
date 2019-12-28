@@ -146,7 +146,7 @@
           outlined></v-select>
         <v-btn
           class="mr-4"
-          @click="submit">Submit</v-btn>
+          v-on:click="submit()">Submit</v-btn>
         <v-btn
           @click="clear">Clear</v-btn>
       </v-form>
@@ -155,6 +155,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     name: 'HeartTestPage',
 
@@ -218,7 +219,37 @@
         'Fixed Defect',
         'Reversable Defect'
       ]
-    })
+    }),
+
+    methods: {
+      submit() {
+        var heart_data_obj = {
+          Age_js: this.age,
+          Gender_js: this.gender,
+          chptype_js: this.chptype,
+          rbp_js: this.rbp,
+          scl_js: this.scl,
+          bsl_js: this.bsl,
+          rer_js: this.rer,
+          mhra_js: this.mhra,
+          eia_js: this.eia,
+          stdep_js: this.stdep,
+          slpst_js: this.slpst,
+          fluroves_js: this.fluroves,
+          thal_js: this.thal
+        }
+        var heart_data = JSON.stringify(heart_data_obj);
+        axios.post('http://127.0.0.1:8000/pcshs_app/test/heartdisease/dataupload', {
+          body: heart_data
+        })
+        .then(function() {
+          console.log('Data uploaded successfully!');
+        })
+        .catch(function() {
+          console.log('Data could not be uploaded successfully!');
+        });
+      }
+    }
   }
 </script>
 
