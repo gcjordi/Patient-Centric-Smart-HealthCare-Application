@@ -150,7 +150,6 @@
         <v-btn
           v-on:click="clear()">Clear</v-btn>
       </v-form>
-      <div> {{ csrftoken }} </div>
     </div>
   </div>
 </template>
@@ -160,7 +159,6 @@
     name: 'HeartTestPage',
 
     data: () => ({
-      //csrftoken: csrf_token,
       show_button: true,
       result_int: 1,
       result: 'Hard disease detected.',
@@ -223,7 +221,7 @@
     }),
 
     methods: {
-      /*submit() {
+      submit() {
         var heart_data_obj = {
           Age_js: this.age,
           Gender_js: this.gender,
@@ -239,8 +237,9 @@
           fluroves_js: this.fluroves,
           thal_js: this.thal
         }
-        var heart_data = JSON.stringify(heart_data_obj);
-      }*/
+        console.log(heart_data_obj)
+      },
+
       clear() {
         this.age = 0,
         this.gender = '',
