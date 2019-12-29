@@ -46,7 +46,7 @@
         ref = "form"
         lazy-validation>
         <v-text-field
-          :v-model="age"
+          v-model="age"
           label="Age"
           :rules="ageRules"
           required
@@ -148,18 +148,19 @@
           class="mr-4"
           v-on:click="submit()">Submit</v-btn>
         <v-btn
-          @click="clear">Clear</v-btn>
+          v-on:click="clear()">Clear</v-btn>
       </v-form>
+      <div> {{ csrftoken }} </div>
     </div>
   </div>
 </template>
 
 <script>
-  import axios from 'axios';
   export default {
     name: 'HeartTestPage',
 
     data: () => ({
+      //csrftoken: csrf_token,
       show_button: true,
       result_int: 1,
       result: 'Hard disease detected.',
@@ -222,7 +223,7 @@
     }),
 
     methods: {
-      submit() {
+      /*submit() {
         var heart_data_obj = {
           Age_js: this.age,
           Gender_js: this.gender,
@@ -239,15 +240,21 @@
           thal_js: this.thal
         }
         var heart_data = JSON.stringify(heart_data_obj);
-        axios.post('http://127.0.0.1:8000/pcshs_app/test/heartdisease/dataupload', {
-          body: heart_data
-        })
-        .then(function() {
-          console.log('Data uploaded successfully!');
-        })
-        .catch(function() {
-          console.log('Data could not be uploaded successfully!');
-        });
+      }*/
+      clear() {
+        this.age = 0,
+        this.gender = '',
+        this.chptype = '',
+        this.scl = 0,
+        this.rbp = 0,
+        this.bsl = '',
+        this.rer = '',
+        this.mhra = 0,
+        this.eia = '',
+        this.stdep = 0.0,
+        this.slpst = '',
+        this.fluroves = 0,
+        this.thal = ''
       }
     }
   }
