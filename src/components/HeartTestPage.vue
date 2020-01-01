@@ -146,19 +146,24 @@
           outlined></v-select>
         <v-btn
           class="mr-4"
-          v-on:click="submit()">Submit</v-btn>
+          @click="submit">Submit</v-btn>
         <v-btn
-          v-on:click="clear()">Clear</v-btn>
+          @click="clear">Clear</v-btn>
       </v-form>
     </div>
   </div>
 </template>
 
 <script>
+  import axios from 'axios';
+  //import Cookies from 'js-cookie';
+  //var csrftoken = Cookies.get('csrftoken');
+
   export default {
     name: 'HeartTestPage',
 
     data: () => ({
+      //csrf_token: csrftoken,
       show_button: true,
       result_int: 1,
       result: 'Hard disease detected.',
@@ -237,7 +242,17 @@
           fluroves_js: this.fluroves,
           thal_js: this.thal
         }
-        console.log(heart_data_obj)
+        var heart_data = JSON.stringify(heart_data_obj)
+        //axios.defaults.headers.post["CSRF_COOKIE"] = Cookies.set('csrftoken', this.csrf_token);
+        axios.post('http://localhost:8000/pcshs_app/tests/heartdisease/dataupload', {
+          //headers: { 'X_CSRFTOKEN': this.csrf_token },
+          //withCredentials: true,
+          body: heart_data,
+        }).then(function(response) {
+          console.log(response);
+        }).catch(function(error) {
+          console.log(error);
+        });
       },
 
       clear() {

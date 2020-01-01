@@ -36,7 +36,6 @@
     font-family: 'Muli', sans-serif;
     margin-top: 100px;
     list-style-type: none;
-    list-style-image: url('https://image.flaticon.com/icons/png/32/913/premium/913383.png');
     font-size: 17px;
     line-height: 4.5;
   }
