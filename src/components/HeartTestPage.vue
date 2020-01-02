@@ -132,7 +132,6 @@
           v-model="fluroves"
           :items="majvessel"
           label="Number of Major Vessels(0-3) colored by Fluroscopy"
-          :rules="[v => !!v ||'Required']"
           required
           dense
           outlined></v-select>
@@ -227,7 +226,7 @@
 
     methods: {
       submit() {
-        var heart_data_obj = {
+        var heart_data = {
           Age_js: this.age,
           Gender_js: this.gender,
           chptype_js: this.chptype,
@@ -242,11 +241,7 @@
           fluroves_js: this.fluroves,
           thal_js: this.thal
         }
-        var heart_data = JSON.stringify(heart_data_obj)
-        //axios.defaults.headers.post["CSRF_COOKIE"] = Cookies.set('csrftoken', this.csrf_token);
         axios.post('http://localhost:8000/pcshs_app/tests/heartdisease/dataupload', {
-          //headers: { 'X_CSRFTOKEN': this.csrf_token },
-          //withCredentials: true,
           body: heart_data,
         }).then(function(response) {
           console.log(response);
