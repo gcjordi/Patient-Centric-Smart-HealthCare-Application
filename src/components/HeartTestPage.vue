@@ -155,17 +155,14 @@
 
 <script>
   import axios from 'axios';
-  //import Cookies from 'js-cookie';
-  //var csrftoken = Cookies.get('csrftoken');
 
   export default {
     name: 'HeartTestPage',
 
     data: () => ({
-      //csrf_token: csrftoken,
       show_button: true,
       result_int: 1,
-      result: 'Hard disease detected.',
+      result: 'No Analysis Done',
       age: 0,
       ageRules: [
         v => !!v || 'Required',
@@ -243,9 +240,18 @@
         }
         axios.post('http://localhost:8000/pcshs_app/tests/heartdisease/dataupload', {
           body: heart_data,
-        }).then(function(response) {
+        })
+        .then((response) => {
           console.log(response);
-        }).catch(function(error) {
+          if(response.data.result == 'No Heart Disease Detected') {
+            this.show_button = false
+          }
+          else {
+            this.show_button = true
+          }
+          this.result = response.data.result;
+        })
+        .catch(function(error) {
           console.log(error);
         });
       },
@@ -264,6 +270,7 @@
         this.slpst = '',
         this.fluroves = 0,
         this.thal = ''
+        this.result = 'No Analysis Done'
       }
     }
   }
