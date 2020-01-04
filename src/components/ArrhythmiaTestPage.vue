@@ -29,7 +29,7 @@
         </template>
       </v-file-input>
       <div style="margin-left: 20px;">
-        <v-btn class="ma-2" tile outlined>
+        <v-btn class="ma-2" v-on:click="submitFiles()" tile outlined>
          UPLOAD <v-icon right small>mdi-upload</v-icon>
        </v-btn>
      </div>
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     name: 'ArrhythmiaTestPage',
 
@@ -47,6 +48,25 @@
     }),
 
     methods: {
+      submitFiles() {
+        let formData = new FormData();
+        for(var i = 0; i < this.files.length; i++) {
+          let file = this.files[i];
+          formData.append('files[' + i + ']', file);
+        }
+        axios.post('http://localhost:8000/pcshs_app/tests/arrhythmia/dataupload',
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }
+        ).then(function() {
+          console.log('Files successfully uploaded!');
+        }).catch(function() {
+          console.log('Files could not be uploaded successfully!');
+        });
+      }
     }
   }
 </script>
