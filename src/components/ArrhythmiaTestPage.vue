@@ -33,18 +33,21 @@
          UPLOAD <v-icon right small>mdi-upload</v-icon>
        </v-btn>
      </div>
-    </div>
+   </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
+
   export default {
     name: 'ArrhythmiaTestPage',
 
     data: () => ({
       files: [],
-      heading_page: 'Select ECG files for Arrhythmia detection :'
+      heading_page: 'Select ECG files for Arrhythmia detection :',
+      ml2signal: [],
+      v5signal: []
     }),
 
     methods: {
@@ -61,8 +64,10 @@
               'Content-Type': 'multipart/form-data'
             }
           }
-        ).then(function() {
-          console.log('Files successfully uploaded!');
+        ).then((response) => {
+          console.log(response);
+          this.ml2signal = response.data.ml2signal;
+          this.v5signal = response.data.v5signal;
         }).catch(function() {
           console.log('Files could not be uploaded successfully!');
         });
