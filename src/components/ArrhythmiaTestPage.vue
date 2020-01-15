@@ -34,13 +34,16 @@
        </v-btn>
      </div>
    </div>
-   <div class="ecg_chart_container">
-     <div>
-       <line-chart
-        v-if="fetched"
-        :chartdata="chartdata"
-        :options="options"/>
-      </div>
+   <div class="resultgh_container">
+     <h1 v-if="fetched"> Electrocardiographic Resultant Plot </h1>
+     <div class="ecg_chart_container">
+       <div>
+         <line-chart
+          v-if="fetched"
+          :chartdata="chartdata"
+          :options="options"/>
+        </div>
+     </div>
    </div>
   </div>
 </template>
@@ -103,6 +106,7 @@
             datasets: [{
               label: 'Electrocardiographic Reading',
               borderColor: '#F0134D',
+              borderWidth: 1,
               pointBackgroundColor: '#F0134D',
               pointBorderColor: '#F0134D',
               fill: false,
@@ -130,15 +134,25 @@
     font-size: 20px;
     margin-left: 20px;
   }
+  .resultgh_container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .resultgh_container h1 {
+    font-size: 20px;
+    font-family: 'Muli', sans-serif;
+    font-weight: 100;
+  }
   .ecg_chart_container {
     position: relative;
+    margin-top: 20px;
   }
   .ecg_chart_container div {
     position: absolute;
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    width: 90%;
-    height: 400px;
+    width: 95%;
+    padding-bottom: 50px;
   }
 </style>
