@@ -34,23 +34,52 @@
        </v-btn>
      </div>
    </div>
+   <div class="ecg_chart_container">
+     <div>
+       <line-chart
+        v-if="fetched"
+        :chartdata="chartdata"
+        :options="options"/>
+      </div>
+   </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
+  import LineChart from './LineChart.vue';
 
   export default {
     name: 'ArrhythmiaTestPage',
+
+    components: { LineChart },
 
     data: () => ({
       files: [],
       heading_page: 'Select ECG files for Arrhythmia detection :',
       ml2signal: [],
-      v5signal: []
+      v5signal: [],
+      signal_label: [],
+      fetched: false,
+      chartdata: null,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        beginAtZero: true,
+        elements: {
+          point: {
+            radius: 0
+          }
+        }
+      }
     }),
 
     methods: {
+      createLabels() {
+        for(var i = 0; i < 5000; i++) {
+          this.signal_label.push(i);
+        }
+      },
       submitFiles() {
         let formData = new FormData();
         for(var i = 0; i < this.files.length; i++) {
@@ -68,6 +97,19 @@
           console.log(response);
           this.ml2signal = response.data.ml2signal;
           this.v5signal = response.data.v5signal;
+          this.createLabels();
+          this.chartdata = {
+            labels: this.signal_label,
+            datasets: [{
+              label: 'Electrocardiographic Reading',
+              borderColor: '#F0134D',
+              pointBackgroundColor: '#F0134D',
+              pointBorderColor: '#F0134D',
+              fill: false,
+              data: this.ml2signal.slice(0, 5000)
+            }]
+          }
+          this.fetched = true;
         }).catch(function() {
           console.log('Files could not be uploaded successfully!');
         });
@@ -87,5 +129,16 @@
     font-weight: 100;
     font-size: 20px;
     margin-left: 20px;
+  }
+  .ecg_chart_container {
+    position: relative;
+  }
+  .ecg_chart_container div {
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 90%;
+    height: 400px;
   }
 </style>
