@@ -14,6 +14,12 @@
     },
     mounted() {
       this.renderChart(this.chartdata, this.options)
+    },
+    watch: {
+      chartdata() {
+        this.$data._chart.destroy()
+        this.renderChart(this.chartdata, this.options)
+      }
     }
   }
 </script>

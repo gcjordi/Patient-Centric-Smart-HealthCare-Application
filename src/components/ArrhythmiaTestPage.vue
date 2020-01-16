@@ -63,13 +63,13 @@
       ml2signal: [],
       v5signal: [],
       signal_label: [],
+      label_create: true,
       fetched: false,
       chartdata: null,
       options: {
         responsive: true,
         maintainAspectRatio: false,
         beginAtZero: true,
-        autoSkip: true,
         elements: {
           point: {
             radius: 0
@@ -100,7 +100,10 @@
           console.log(response);
           this.ml2signal = response.data.ml2signal;
           this.v5signal = response.data.v5signal;
-          this.createLabels();
+          if(this.label_create == true) {
+            this.createLabels();
+            this.label_create = false
+          }
           this.chartdata = {
             labels: this.signal_label,
             datasets: [{
