@@ -69,6 +69,7 @@
         responsive: true,
         maintainAspectRatio: false,
         beginAtZero: true,
+        autoSkip: true,
         elements: {
           point: {
             radius: 0
@@ -76,7 +77,6 @@
         }
       }
     }),
-
     methods: {
       createLabels() {
         for(var i = 0; i < 5000; i++) {
@@ -104,13 +104,21 @@
           this.chartdata = {
             labels: this.signal_label,
             datasets: [{
-              label: 'Electrocardiographic Reading',
+              label: 'MLII Reading',
               borderColor: '#F0134D',
               borderWidth: 1,
               pointBackgroundColor: '#F0134D',
               pointBorderColor: '#F0134D',
               fill: false,
               data: this.ml2signal.slice(0, 5000)
+            }, {
+              label: 'V5 Reading',
+              borderColor: '#3282B8',
+              borderWidth: 1,
+              pointBackgroundColor: '#3282B8',
+              pointBorderColor: '#3282B8',
+              fill: false,
+              data: this.v5signal.slice(0, 5000)
             }]
           }
           this.fetched = true;
