@@ -1,6 +1,7 @@
 # Patient Centric Smart HealthCare System - WebApp
 ![Dependencies](https://img.shields.io/david/Abhishek-Kathayat/pcshs_webapp) 
 ![Contributors](https://img.shields.io/github/contributors/Abhishek-Kathayat/pcshs_webapp)
+![Axios](https://img.shields.io/github/package-json/dependency-version/Abhishek-Kathayat/pcshs_webapp/axios)
 ![Chartjs](https://img.shields.io/github/package-json/dependency-version/Abhishek-Kathayat/pcshs_webapp/chart.js?color=%23FE777B)
 ![Vue](https://img.shields.io/github/package-json/dependency-version/Abhishek-Kathayat/pcshs_webapp/vue?color=%2341B883)
 ![Vuetify](https://img.shields.io/github/package-json/dependency-version/Abhishek-Kathayat/pcshs_webapp/vuetify)
