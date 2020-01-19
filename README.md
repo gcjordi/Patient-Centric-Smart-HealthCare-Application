@@ -1,6 +1,9 @@
 # Patient Centric Smart HealthCare System - WebApp
 ![Dependencies](https://img.shields.io/david/Abhishek-Kathayat/pcshs_webapp) 
 ![Contributors](https://img.shields.io/github/contributors/Abhishek-Kathayat/pcshs_webapp)
+![Chartjs](https://img.shields.io/github/package-json/dependency-version/Abhishek-Kathayat/pcshs_webapp/chart.js?color=%23FE777B)
+![Vue](https://img.shields.io/github/package-json/dependency-version/Abhishek-Kathayat/pcshs_webapp/vue?color=%2341B883)
+![Vuetify](https://img.shields.io/github/package-json/dependency-version/Abhishek-Kathayat/pcshs_webapp/vuetify)
 
 This is the webapp for my B.Tech Project namely Patient Centric Smart HealthCare System using Machine Learning Approach.<br/><br/>
 The project focuses on creating a smart heart condition analysis and diagnosis suggestion system. Till now work has been done in the first two parts of the project, which are Arrhythmia Detection and Heart Disease Prediction. Since the project has been made using python this webapp is a minimalistic UI created using VueJS.<br/><br/>
