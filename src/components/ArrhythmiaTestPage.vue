@@ -1,5 +1,11 @@
 <template>
   <div style="background-color: #fff; height: 100%; width: 100%;">
+    <div class="result_section">
+      <h1> {{ final_result }} </h1>
+      <v-btn class="ma-2" style="float: right; bottom: 0;" tile outlined>
+         DIAGNOSIS REPORT <v-icon right small>mdi-arrow-right</v-icon>
+      </v-btn>
+    </div>
     <div class="file_form_holder">
       <h2> {{ heading_page }} </h2>
       <v-file-input
@@ -63,6 +69,7 @@
       ml2signal: [],
       v5signal: [],
       signal_label: [],
+      final_result: 'No Prediction done',
       label_create: true,
       fetched: false,
       chartdata: null,
@@ -165,5 +172,19 @@
     transform: translateX(-50%);
     width: 95%;
     padding-bottom: 50px;
+  }
+  .result_section {
+    margin-top: 40px;
+    margin-right: 30px;
+    width: 40%;
+    float: right;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .result_section h1 {
+    font-family: 'Muli', sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+    margin: 25px;
   }
 </style>
