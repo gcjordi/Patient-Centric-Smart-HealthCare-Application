@@ -172,10 +172,12 @@
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 95%;
-    padding-bottom: 50px;
   }
   .result_container {
     position: relative;
+    display: inline;
+    margin-top: 40px;
+    border-bottom: 40px solid #fff;
   }
   .result_container h3 {
     font-family: 'Muli', sans-serif;
