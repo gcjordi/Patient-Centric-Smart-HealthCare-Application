@@ -1,11 +1,5 @@
 <template>
   <div style="background-color: #fff; height: 100%; width: 100%;">
-    <div class="result_section">
-      <h1> {{ final_result }} </h1>
-      <v-btn class="ma-2" style="float: right; bottom: 0;" tile outlined>
-         DIAGNOSIS REPORT <v-icon right small>mdi-arrow-right</v-icon>
-      </v-btn>
-    </div>
     <div class="file_form_holder">
       <h2> {{ heading_page }} </h2>
       <v-file-input
@@ -45,9 +39,16 @@
      <div class="ecg_chart_container">
        <div>
          <line-chart
+          style="position: relative;"
           v-if="fetched"
           :chartdata="chartdata"
           :options="options"/>
+          <div class="result_container">
+            <v-btn id="btn_next" class="ma-2" tile outlined>
+               DIAGNOSIS REPORT <v-icon right small>mdi-arrow-right</v-icon>
+            </v-btn>
+            <h3> {{ final_result }} </h3>
+          </div>
         </div>
      </div>
    </div>
@@ -173,18 +174,20 @@
     width: 95%;
     padding-bottom: 50px;
   }
-  .result_section {
-    margin-top: 40px;
-    margin-right: 30px;
-    width: 40%;
-    float: right;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  .result_container {
+    position: relative;
   }
-  .result_section h1 {
+  .result_container h3 {
     font-family: 'Muli', sans-serif;
-    font-size: 20px;
     font-weight: 200;
-    margin: 25px;
+    font-size: 20px;
+    display: inline;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  #btn_next {
+    float: right;
   }
 </style>
