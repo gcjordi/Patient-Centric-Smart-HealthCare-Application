@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
 import TestPage from '@/components/TestPage'
 import HeartTestPage from '@/components/HeartTestPage'
+import MedicalDiagnosis from '@/components/MedicalDiagnosis'
 import ArrhythmiaTestPage from '@/components/ArrhythmiaTestPage'
 
 Vue.use(Router)
@@ -28,6 +29,11 @@ export default new Router({
       path: '/test/arrhythmia',
       name: 'ArrhythmiaTestPage',
       component: ArrhythmiaTestPage
+    },
+    {
+      path: '/test/medicaldiagnosis',
+      name: 'MedicalDiagnosis',
+      component: MedicalDiagnosis
     }
   ]
 })

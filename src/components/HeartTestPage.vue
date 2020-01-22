@@ -160,7 +160,7 @@
     name: 'HeartTestPage',
 
     data: () => ({
-      show_button: true,
+      show_button: false,
       result_int: 1,
       result: 'No Analysis Done',
       age: 0,
