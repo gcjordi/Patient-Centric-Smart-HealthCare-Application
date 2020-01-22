@@ -43,8 +43,8 @@
           v-if="fetched"
           :chartdata="chartdata"
           :options="options"/>
-          <div class="result_container">
-            <v-btn id="btn_next" class="ma-2" tile outlined>
+          <div class="result_container" v-if="fetched">
+            <v-btn :to="`${'/test/medicaldiagnosis'}`" id="btn_next" class="ma-2" tile outlined>
                DIAGNOSIS REPORT <v-icon right small>mdi-arrow-right</v-icon>
             </v-btn>
             <h3> {{ final_result }} </h3>
