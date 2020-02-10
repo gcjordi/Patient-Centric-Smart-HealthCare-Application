@@ -34,6 +34,22 @@
        </v-btn>
      </div>
    </div>
+   <v-dialog
+     v-model="dialog"
+     hide-overlay persistent
+     width="300">
+     <v-card
+       color="#505050" dark>
+       <div style="padding: 5px;">
+         <v-card-text>
+           <h1 style="font-size: 15px; font-family: Muli, sans-serif; margin-bottom: 20px;">Analysing Data...</h1>
+           <v-progress-linear
+             indeterminate color="white" class="mb-0">
+           </v-progress-linear>
+         </v-card-text>
+       </div>
+     </v-card>
+   </v-dialog>
    <div class="resultgh_container">
      <h1 v-if="fetched"> Electrocardiographic Resultant Plot </h1>
      <div class="ecg_chart_container">
@@ -66,6 +82,7 @@
 
     data: () => ({
       files: [],
+      dialog: false,
       heading_page: 'Select ECG files for Arrhythmia detection :',
       ml2signal: [],
       v5signal: [],
@@ -92,6 +109,7 @@
         }
       },
       submitFiles() {
+        this.dialog = true;
         let formData = new FormData();
         for(var i = 0; i < this.files.length; i++) {
           let file = this.files[i];
@@ -112,6 +130,7 @@
             this.createLabels();
             this.label_create = false
           }
+          this.dialog = false;
           this.chartdata = {
             labels: this.signal_label,
             datasets: [{
