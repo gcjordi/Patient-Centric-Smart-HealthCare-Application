@@ -1,18 +1,5 @@
 <template>
   <div style="background-color: #fff;">
-    <v-dialog
-      v-model="dialog"
-      hide-overlay persistent
-      width="300">
-      <v-card color="primary" dark>
-        <v-card-text>
-          Analysing Data...
-          <v-progress-linear
-            indeterminate color="white" class="mb-0">
-          </v-progress-linear>
-        </v-card-text>
-      </v-card>
-    </v-dialog>
     <div class="right_div">
       <v-card
         class="mx-auto"
@@ -53,6 +40,22 @@
          CHECK ARRHYTHMIA <v-icon right small>mdi-arrow-right</v-icon>
       </v-btn>
     </div>
+    <v-dialog
+      v-model="dialog"
+      hide-overlay persistent
+      width="300">
+      <v-card
+        color="#505050" dark>
+        <div style="padding: 5px;">
+          <v-card-text>
+            <h1 style="font-size: 15px;">Analysing Data...</h1>
+            <v-progress-linear
+              indeterminate color="white" class="mb-0">
+            </v-progress-linear>
+          </v-card-text>
+        </div>
+      </v-card>
+    </v-dialog>
     <div class="left_div">
       <h1>Enter the following data for Heart Disease Prediction : </h1>
       <v-form
