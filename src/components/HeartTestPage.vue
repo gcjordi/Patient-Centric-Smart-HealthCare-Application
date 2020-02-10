@@ -1,5 +1,18 @@
 <template>
   <div style="background-color: #fff;">
+    <v-dialog
+      v-model="dialog"
+      hide-overlay persistent
+      width="300">
+      <v-card color="primary" dark>
+        <v-card-text>
+          Analysing Data...
+          <v-progress-linear
+            indeterminate color="white" class="mb-0">
+          </v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
     <div class="right_div">
       <v-card
         class="mx-auto"
@@ -162,6 +175,7 @@
     data: () => ({
       show_button: false,
       result_int: 1,
+      dialog: false,
       result: 'No Analysis Done',
       age: 0,
       ageRules: [
@@ -223,6 +237,7 @@
 
     methods: {
       submit() {
+        this.dialog = true
         var heart_data = {
           Age_js: this.age,
           Gender_js: this.gender,
@@ -243,6 +258,7 @@
         })
         .then((response) => {
           console.log(response);
+          this.dialog = false
           if(response.data.result == 'No Heart Disease Detected') {
             this.show_button = false
           }
