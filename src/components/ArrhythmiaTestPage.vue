@@ -84,8 +84,7 @@
       files: [],
       dialog: false,
       heading_page: 'Select ECG files for Arrhythmia detection :',
-      ml2signal: [],
-      v5signal: [],
+      ecg_signal: [],
       signal_label: [],
       final_result: 'No Prediction done',
       label_create: true,
@@ -124,8 +123,7 @@
           }
         ).then((response) => {
           console.log(response);
-          this.ml2signal = response.data.ml2signal;
-          this.v5signal = response.data.v5signal;
+          this.ecg_signal = response.data.ecg_signal;
           if(this.label_create == true) {
             this.createLabels();
             this.label_create = false
@@ -134,21 +132,13 @@
           this.chartdata = {
             labels: this.signal_label,
             datasets: [{
-              label: 'MLII Reading',
+              label: 'ECG Single Lead Reading',
               borderColor: '#F0134D',
               borderWidth: 1,
               pointBackgroundColor: '#F0134D',
               pointBorderColor: '#F0134D',
               fill: false,
-              data: this.ml2signal.slice(0, 5000)
-            }, {
-              label: 'V5 Reading',
-              borderColor: '#3282B8',
-              borderWidth: 1,
-              pointBackgroundColor: '#3282B8',
-              pointBorderColor: '#3282B8',
-              fill: false,
-              data: this.v5signal.slice(0, 5000)
+              data: this.ecg_signal.slice(0, 5000)
             }]
           }
           this.fetched = true;
