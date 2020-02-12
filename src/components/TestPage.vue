@@ -4,7 +4,7 @@
     <ul>
       <li> Heart/Cardiovascular Disease Prediction </li>
       <li> Heart Arrhythmia Detection using Electrocardiogram Signals </li>
-      <li> Medical Diagnosis Suggestion System </li>
+      <li> Medical Diagnosis Suggestions </li>
     </ul>
     <div class="cnt_button"><v-btn :to="`${'/test/heartdisease'}`" class="ma-2" tile outlined> START TEST </v-btn></div>
   </div>

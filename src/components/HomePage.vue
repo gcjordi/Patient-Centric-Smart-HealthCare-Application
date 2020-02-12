@@ -81,8 +81,7 @@
       prt3_head: 'Medical Diagnosis Suggestion System',
       prt3_desc: 'In this phase we have focused on combining the work done in the first two phases (Heart Disease Prediction and Arrhythmia ' +
                  'Detection using Convolutional Neural Networks). We will also be looking to make our arrhythmia detection model more accurate ' +
-                 'by training it over larger datasets if possible. We will also be looking to create a simple medical diagnosis suggestion ' + 
-                 'system which is capable of suggesting an appropriate diagnosis depending upon the type of arrhythmia condition the patient has.',
+                 'by training it over larger datasets if possible. In the end we will also be suggesting the patient some possible diagnosis.',
       dit_univ_loc: 'Mussoorie-Diversion Road, Village Makkawala, Dehradun, Uttarakhand-248009, India'
     })
   };
