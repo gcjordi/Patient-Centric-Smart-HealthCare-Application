@@ -68,12 +68,12 @@
       project_desc: 'For partial fullfillment of degree of Bachelor in Computer Science and Engineering.',
       project_sec2_head: 'About the project',
       project_sec2_desc: 'We have developed a system which is capable of predicting whether a person is suffering from a ' +
-                         'heart disease or not, which type of arrhythmia(irregular heart rhythms) condition does' +
+                         'heart arrhythmia condition or not, which type of arrhythmia(irregular heart rhythms) condition does' +
                          ' the patient has, using ECG signals and can suggest some diagnosis that can be done to cure the '+
                          'problem based on the data recieved from the person.',
-      prt1_head: 'Heart Disease Prediction',
+      prt1_head: 'Heart Arrhythmia Prediction',
       prt1_desc: 'In this phase we have developed a machine learning model using feed forward neural networks, which is capable ' +
-                 'of predicting whether a patient is suffering from a heart/cardiovascular disease or not using the inputs provided by the patient.',
+                 'of predicting whether a patient is suffering from a heart/cardiovascular arrhythmia or not using the inputs provided by the patient.',
       prt2_head: 'Arrhythmia Detection using Convolutional Neural Networks',
       prt2_desc: 'In this phase we have developed a machine learning model using Convolutional Neural Networks, which is capable of ' +
                  'predicting the type of arrhythmia(irregular heart rhythms) condition the patient has, using the ECG(Electrocardiogram) ' +
