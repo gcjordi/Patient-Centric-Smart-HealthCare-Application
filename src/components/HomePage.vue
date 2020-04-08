@@ -78,10 +78,10 @@
       prt2_desc: 'In this phase we have developed a machine learning model using Convolutional Neural Networks, which is capable of ' +
                  'predicting the type of arrhythmia(irregular heart rhythms) condition the patient has, using the ECG(Electrocardiogram) ' +
                  'signals as an input.',
-      prt3_head: 'Medical Diagnosis Suggestion',
+      prt3_head: 'First and Second Phase Work Compilation',
       prt3_desc: 'In this phase we have focused on combining the work done in the first two phases (Heart Disease Prediction and Arrhythmia ' +
                  'Detection using Convolutional Neural Networks). We will also be looking to make our arrhythmia detection model more accurate ' +
-                 'by training it over larger datasets if possible. In the end we will also be suggesting the patient some possible diagnosis.',
+                 'by training it over larger datasets if possible.',
       dit_univ_loc: 'Mussoorie-Diversion Road, Village Makkawala, Dehradun, Uttarakhand-248009, India'
     })
   };

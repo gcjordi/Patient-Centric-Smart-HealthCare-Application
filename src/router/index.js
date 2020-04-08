@@ -28,12 +28,14 @@ export default new Router({
     {
       path: '/test/arrhythmia',
       name: 'ArrhythmiaTestPage',
-      component: ArrhythmiaTestPage
+      component: ArrhythmiaTestPage,
+      props: true
     },
     {
       path: '/test/medicaldiagnosis',
       name: 'MedicalDiagnosis',
-      component: MedicalDiagnosis
+      component: MedicalDiagnosis,
+      props: true
     }
   ]
 })

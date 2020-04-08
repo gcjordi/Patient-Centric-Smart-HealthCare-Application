@@ -124,6 +124,7 @@
         ).then((response) => {
           console.log(response);
           this.ecg_signal = response.data.ecg_signal;
+          this.final_result = response.data.arrhythmia_result;
           if(this.label_create == true) {
             this.createLabels();
             this.label_create = false
